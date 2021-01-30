@@ -5,6 +5,9 @@ import { useFirestore, useFirestoreDocData} from 'reactfire';
 import React, {Suspense} from 'react'
 //import {Button, FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core';
 
+import BackgroundMap from "./Components/BackgroundMap"
+import { GoogleMap } from '@react-google-maps/api';
+
 //Get a "Move" object from Firebase
 function Move(){
   // lazy load the Firestore SDK and create a document reference
@@ -74,23 +77,34 @@ function App() {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
-        </p>
-        <a
-          className="App-link"
-          href="https://youtu.be/e4iXrrbO_YY"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Click Here to go to Cow Planet!
-        </a>
-        <SuggestionForm />
+        <div id="wrapper">
+          <BackgroundMap/>
+          
+          <div id="over_map_centered">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+              Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
+            </p>
+            <a
+              className="App-link"
+              href="https://youtu.be/e4iXrrbO_YY"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Click Here to go to Cow Planet!
+            </a>
+            <SuggestionForm />
+            <Suspense fallback={"loading firebase description..."}>
+              <Move />
+            </Suspense>
+          </div>
+
+
+        </div>
+        
       </header>
-      <Suspense fallback={"loading firebase description..."}>
-        <Move />
-      </Suspense>
+      
+      
     </div>
   );
 }
