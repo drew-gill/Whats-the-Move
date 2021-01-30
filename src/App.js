@@ -6,8 +6,7 @@ import React, {Suspense} from 'react'
 import Button from '@material-ui/core/Button';
 
 import BackgroundMap from "./Components/BackgroundMap"
-import { GoogleMap } from '@react-google-maps/api';
-import DrawerComponent from './Components/DrawerComponent'
+//import DrawerComponent from './Components/DrawerComponent'
 import PersistentLeft from './Components/PersistentLeft';
 
 
