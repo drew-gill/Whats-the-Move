@@ -6,6 +6,7 @@ import React, {Suspense} from 'react'
 import Button from '@material-ui/core/Button';
 
 import DrawerComponent from './Components/DrawerComponent'
+import PersistentLeft from './Components/PersistentLeft';
 
 
 //-----------------------------------------------------------------------------IMPORTS ABOVE THIS LINE
@@ -84,8 +85,8 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
         </p>
 
-        <DrawerComponent/>
-
+        {/*<DrawerComponent/>   Do not use  */}
+        <PersistentLeft/>
         <a
           className="App-link"
           href="https://youtu.be/e4iXrrbO_YY"
