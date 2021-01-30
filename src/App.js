@@ -34,15 +34,15 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload. EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep ilch
+          Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://youtu.be/e4iXrrbO_YY"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Click Here to go to Cow Planet!
         </a>
       </header>
       <Suspense fallback={"loading firebase description..."}>
