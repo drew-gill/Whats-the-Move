@@ -3,11 +3,12 @@ import './App.css';
 import 'firebase/firestore'
 import { useFirestore, useFirestoreDocData} from 'reactfire';
 import React, {Suspense} from 'react'
+import {Button, FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core';
 
 //Get a "Move" object from Firebase
 function Move(){
   // lazy load the Firestore SDK and create a document reference
-  const theMoveRef = useFirestore()
+  const theMoveRef = useFirestore() 
     .collection('Moves')
     .doc('exampleSwampHacks');
 
@@ -21,17 +22,56 @@ function Move(){
   return <p>The location is {data.accessible ? 'accessible' : 'not accessible'}</p>;
 }
 
-/*To load from firestore, use
-SuspenseWithPerf
-We need to do this because useFirestoreDocData throws a Promise 
-while it is waiting for a response from Firestore. 
-Suspense will catch the Promise and render fallback until the 
-Promise is resolved.
+function GetMove(){
+  const theMoveRef = useFirestore() 
+    .collection('Moves')
+    .doc('exampleSwampHacks');
+
+  // subscribe to the doc. just one line!
+  const {status, data} = useFirestoreDocData(theMoveRef);
+
+  return {status, data};
+}
+
+class SuggestionForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {    this.setState({value: event.target.value});  }
+  handleSubmit(event) {
+    //get info from the hardcoded document in the database
+    //const {status, data} = GetMove();
+
+    alert('The move is: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+
+
+/*
 */
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
@@ -44,6 +84,7 @@ function App() {
         >
           Click Here to go to Cow Planet!
         </a>
+        <SuggestionForm />
       </header>
       <Suspense fallback={"loading firebase description..."}>
         <Move />
