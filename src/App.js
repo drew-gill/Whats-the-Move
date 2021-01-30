@@ -84,33 +84,35 @@ function App() {
         />
         <div id="wrapper">
           <BackgroundMap/>
-          
-          <div id="over_map_centered">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
-            </p>
 
-            {/*<DrawerComponent/>   Do not use  */}
+          <div id="over_map">
             <PersistentLeft/>
-            <a
-              className="App-link"
-              href="https://youtu.be/e4iXrrbO_YY"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Click Here to go to Cow Planet!
-            </a>
-
-              <Button variant="contained" color="primary">
-                 Hello World
-              </Button>
-
-            <SuggestionForm />
-            <Suspense fallback={"loading firebase description..."}>
-              <Move />
-            </Suspense>
           </div>
+          <div id="over_map_centered">
+              <img src={logo} className="App-logo" alt="logo" />
+              <p>
+                Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
+              </p>
+
+              {/*<DrawerComponent/>   Do not use  */}
+              <a
+                className="App-link"
+                href="https://youtu.be/e4iXrrbO_YY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Click Here to go to Cow Planet!
+              </a>
+
+                <Button variant="contained" color="primary">
+                  Hello World
+                </Button>
+
+              <SuggestionForm />
+              <Suspense fallback={"loading firebase description..."}>
+                <Move />
+              </Suspense>
+            </div>
 
 
         </div>

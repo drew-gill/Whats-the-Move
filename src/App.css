@@ -32,6 +32,10 @@
   position: relative;
 }
 
+#over_map{
+  position: absolute;
+}
+
 #over_map_centered{
   position: absolute;
   top: 50%;
