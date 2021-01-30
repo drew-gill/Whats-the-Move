@@ -8,9 +8,9 @@ import Switch from '@material-ui/core/Switch';
 
 export default function SwitchesGroup() {
   const [state, setState] = React.useState({
-    gilad: true,
-    jason: false,
-    antoine: true,
+    local: true,
+    covid: false,
+    ada: true,
   });
 
   const handleChange = (event) => {
