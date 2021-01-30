@@ -11,13 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import LocalDiningIcon from '@material-ui/icons/LocalDining';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'; 
 import SwitchesGroup from './SwitchesGroup';
 const drawerWidth = 240;
 
@@ -110,8 +104,8 @@ export default function PersistentLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Advanced Filters
+          <Typography variant="h3" id="centertext"noWrap>
+            Whats The Move?
           </Typography>
         </Toolbar>
       </AppBar>
