@@ -3,11 +3,15 @@ import './App.css';
 import 'firebase/firestore'
 import { useFirestore, useFirestoreDocData} from 'reactfire';
 import React, {Suspense} from 'react'
-//import {Button, FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 import BackgroundMap from "./Components/BackgroundMap"
 import { GoogleMap } from '@react-google-maps/api';
+import DrawerComponent from './Components/DrawerComponent'
+import PersistentLeft from './Components/PersistentLeft';
 
+
+//-----------------------------------------------------------------------------IMPORTS ABOVE THIS LINE
 //Get a "Move" object from Firebase
 function Move(){
   // lazy load the Firestore SDK and create a document reference
@@ -68,6 +72,7 @@ class SuggestionForm extends React.Component {
 
 
 /*
+----------------------------------------------------------------------------------------------APP STARTS HERE
 */
 function App() {
   return (
@@ -85,6 +90,9 @@ function App() {
             <p>
               Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
             </p>
+
+            {/*<DrawerComponent/>   Do not use  */}
+            <PersistentLeft/>
             <a
               className="App-link"
               href="https://youtu.be/e4iXrrbO_YY"
@@ -93,6 +101,11 @@ function App() {
             >
               Click Here to go to Cow Planet!
             </a>
+
+              <Button variant="contained" color="primary">
+                 Hello World
+              </Button>
+
             <SuggestionForm />
             <Suspense fallback={"loading firebase description..."}>
               <Move />
