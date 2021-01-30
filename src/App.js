@@ -3,7 +3,8 @@ import './App.css';
 import 'firebase/firestore'
 import { useFirestore, useFirestoreDocData} from 'reactfire';
 import React, {Suspense} from 'react'
-//import {Button, FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+
 
 //Get a "Move" object from Firebase
 function Move(){
@@ -65,6 +66,7 @@ class SuggestionForm extends React.Component {
 
 
 /*
+----------------------------------------------------------------------------------------------APP STARTS HERE
 */
 function App() {
   return (
