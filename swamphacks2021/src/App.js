@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Click Here to go to Cow Planet!
         </a>
       </header>
     </div>
