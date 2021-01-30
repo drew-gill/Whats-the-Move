@@ -3,7 +3,7 @@ import './App.css';
 import 'firebase/firestore'
 import { useFirestore, useFirestoreDocData} from 'reactfire';
 import React, {Suspense} from 'react'
-import {Button, FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core';
+//import {Button, FormControl, InputLabel, Input, FormHelperText} from '@material-ui/core';
 
 //Get a "Move" object from Firebase
 function Move(){
@@ -22,6 +22,7 @@ function Move(){
   return <p>The location is {data.accessible ? 'accessible' : 'not accessible'}</p>;
 }
 
+/*
 function GetMove(){
   const theMoveRef = useFirestore() 
     .collection('Moves')
@@ -32,6 +33,7 @@ function GetMove(){
 
   return {status, data};
 }
+*/
 
 class SuggestionForm extends React.Component {
   constructor(props) {
