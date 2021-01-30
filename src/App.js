@@ -5,7 +5,8 @@ import { useFirestore, useFirestoreDocData} from 'reactfire';
 import React, {Suspense} from 'react'
 import Button from '@material-ui/core/Button';
 
-import DrawerComponent from './Components/DrawerComponent'
+import BackgroundMap from "./Components/BackgroundMap"
+//import DrawerComponent from './Components/DrawerComponent'
 import PersistentLeft from './Components/PersistentLeft';
 
 
@@ -80,31 +81,44 @@ function App() {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
-        </p>
+        <div id="wrapper">
+          <BackgroundMap/>
 
-        {/*<DrawerComponent/>   Do not use  */}
-        <PersistentLeft/>
-        <a
-          className="App-link"
-          href="https://youtu.be/e4iXrrbO_YY"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Click Here to go to Cow Planet!
-        </a>
+          <div id="over_map">
+            <PersistentLeft/>
+          </div>
+          <div id="over_map_centered">
+              <img src={logo} className="App-logo" alt="logo" />
+              <p>
+                Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
+              </p>
 
-          <Button variant="contained" color="primary">
-             Hello World
-          </Button>
-          
-        <SuggestionForm />
+              {/*<DrawerComponent/>   Do not use  */}
+              <a
+                className="App-link"
+                href="https://youtu.be/e4iXrrbO_YY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Click Here to go to Cow Planet!
+              </a>
+
+                <Button variant="contained" color="primary">
+                  Hello World
+                </Button>
+
+              <SuggestionForm />
+              <Suspense fallback={"loading firebase description..."}>
+                <Move />
+              </Suspense>
+            </div>
+
+
+        </div>
+        
       </header>
-      <Suspense fallback={"loading firebase description..."}>
-        <Move />
-      </Suspense>
+      
+      
     </div>
   );
 }
