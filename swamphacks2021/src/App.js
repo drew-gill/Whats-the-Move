@@ -1,6 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import 'firebase/firestore'
+import { useFirestore, useFirestoreDocData} from 'reactfire';
+import React, {Suspense} from 'react'
 
+//Get a "Move" object from Firebase
+function Move(){
+  // lazy load the Firestore SDK and create a document reference
+  const theMoveRef = useFirestore()
+    .collection('Moves')
+    .doc('exampleSwampHacks');
+
+  // subscribe to the doc. just one line!
+  const {status, data} = useFirestoreDocData(theMoveRef);
+
+  // get the value from the doc
+  if(status === "loading"){
+    return <p>Fetching the Move's accessibility</p>
+  }
+  return <p>The location is {data.accessible ? 'accessible' : 'not accessible'}</p>;
+}
+
+/*To load from firestore, use
+SuspenseWithPerf
+We need to do this because useFirestoreDocData throws a Promise 
+while it is waiting for a response from Firestore. 
+Suspense will catch the Promise and render fallback until the 
+Promise is resolved.
+*/
 function App() {
   return (
     <div className="App">
@@ -18,6 +45,9 @@ function App() {
           Click Here to go to Cow Planet!
         </a>
       </header>
+      <Suspense fallback={"loading firebase description..."}>
+        <Move />
+      </Suspense>
     </div>
   );
 }
