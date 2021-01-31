@@ -8,9 +8,10 @@ import Switch from '@material-ui/core/Switch';
 
 export default function SwitchesGroup() {
   const [state, setState] = React.useState({
-    local: true,
+    local: false,
     covid: false,
-    ada: true,
+    ada: false,
+    equip: false,
   });
 
   const handleChange = (event) => {
@@ -32,6 +33,10 @@ export default function SwitchesGroup() {
         <FormControlLabel
           control={<Switch checked={state.ada} onChange={handleChange} name="ada" />}
           label="ADA compliant"
+        />
+         <FormControlLabel
+          control={<Switch checked={state.equip} onChange={handleChange} name="equip" />}
+          label="Needs Extra Equipment"
         />
       </FormGroup>
       <FormHelperText>YeHaw</FormHelperText>
