@@ -91,7 +91,7 @@ function App() {
           <div id="over_map_centered">
              
               <CardMenu/>
-           
+           {/*
               <a
                 className="App-link"
                 href="https://youtu.be/e4iXrrbO_YY"
@@ -100,6 +100,7 @@ function App() {
               >
                 Click Here to go to Cow Planet!
               </a>
+           */}
               <SuggestionForm />
               <Suspense fallback={"loading firebase description..."}>
                 <Move />
