@@ -118,7 +118,7 @@ export default function PersistentLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h3" id="centertext"noWrap>
-            Whats The Move?
+          🌳What's The Move?🥂 
           </Typography>
 
           {/*Right menu button*/}
