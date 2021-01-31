@@ -11,13 +11,9 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'; 
+import SwitchesGroup from './SwitchesGroup';
+import AgeSlider from './AgeSlider';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -109,8 +105,8 @@ export default function PersistentLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Advanced Filters
+          <Typography variant="h3" id="centertext"noWrap>
+            Whats The Move?
           </Typography>
         </Toolbar>
       </AppBar>
@@ -130,22 +126,10 @@ export default function PersistentLeft() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+            <SwitchesGroup/>
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        <AgeSlider/>
       </Drawer>
       <main
         className={clsx(classes.content, {
