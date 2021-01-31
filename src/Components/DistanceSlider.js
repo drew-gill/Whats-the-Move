@@ -46,9 +46,16 @@ function valuetext(value) {
     },
   ];
 
-  export default function DistanceSlider() {
+  export default function DistanceSlider(props) {
     const classes = useStyles();
   
+    const [value, setValue] = React.useState(props.sliderValue);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue)
+      props.sendDistanceChange(value)
+    }
+
     return (
       <div className={classes.root}>
         <Typography id="discrete-slider-custom" gutterBottom>
@@ -60,7 +67,7 @@ function valuetext(value) {
             </Grid>          
             <Grid item xs>
               <Slider
-                defaultValue={5}
+                value={props.sliderValue}
                 getAriaValueText={valuetext}
                 aria-labelledby="discrete-slider-custom"
                 step={1}
@@ -68,6 +75,7 @@ function valuetext(value) {
                 marks={marks}
                 min={1}
                 max={25}
+                onChange={handleChange}
             />
             </Grid>
             <Grid item>

@@ -36,8 +36,15 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-export default function MoneySlider() {
+export default function MoneySlider(props) {
   const classes = useStyles();
+  
+  const [value, setValue] = React.useState(props.sliderValue);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue)
+      props.sendCostChange(value)
+    }
 
   return (
     <div className={classes.root}>
@@ -57,13 +64,14 @@ export default function MoneySlider() {
             </Grid>          
             <Grid item xs>
             <Slider
-                defaultValue={2}
+                value={props.sliderValue}
                 getAriaValueText={valuetext}
                 aria-labelledby="discrete-slider-custom"
                 step={1}
                 marks={marks}
                 min={1}
                 max={4}
+                onChange={handleChange}
             />
             </Grid>
             <Grid item>

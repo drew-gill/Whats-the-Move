@@ -1,9 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import DistanceSlider from './DistanceSlider';
 import MoneySlider from './MoneySlider';
@@ -29,7 +27,28 @@ const useStyles = makeStyles({
 
 export default function CardMenu() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+
+  const [distanceMax, setDistanceMax] = React.useState(5);
+  const [costMax, setCostMax] = React.useState(2);
+  const [actualCost, setActualCost] = React.useState(15);
+
+  const handleDistanceChange = (childData) =>{
+    setDistanceMax(childData);
+  };
+
+  const handleCostChange = (childData) =>{
+    setCostMax(childData);
+    if(costMax === 1){
+      setActualCost(0);
+    } else if(costMax === 2){
+      setActualCost(15);
+    } else if(costMax === 3){
+      setActualCost(30);
+    } else{
+      setActualCost(10000)
+    }
+
+  };
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -40,9 +59,9 @@ export default function CardMenu() {
 
         </Typography>
 
-        <DistanceSlider/>
-        <MoneySlider/>
-       <FindMove/>
+        <DistanceSlider sendDistanceChange={handleDistanceChange} sliderValue={distanceMax}/>
+        <MoneySlider sendCostChange={handleCostChange} sliderValue={costMax}/>
+       <FindMove  costMax={actualCost} distanceMax={distanceMax}/>
       </CardContent>
      
     </Card>
