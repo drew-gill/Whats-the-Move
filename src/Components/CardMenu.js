@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import DistanceSlider from './DistanceSlider';
 import MoneySlider from './MoneySlider';
+import FindMove from './FindMove';
 const useStyles = makeStyles({
   root: {
     minWidth: 300,
@@ -41,11 +42,9 @@ export default function CardMenu() {
 
         <DistanceSlider/>
         <MoneySlider/>
-       
+       <FindMove/>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+     
     </Card>
   );
 }
