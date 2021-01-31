@@ -42,12 +42,20 @@
   left: 75%;
   transform: translate(-50%, -50%);
 }
-{/*#centertext moved menu text to middle*/}
+/*#centertext moved menu text to middle*/
 #centertext{
   position: absolute;
   top: 0%;
   left: 40%;
 }
+
+/*#rightButton moved addbutton to right*/
+#rightButton{
+  position: absolute;
+  top: -30%;
+  left: 89%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

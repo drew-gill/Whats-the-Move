@@ -10,10 +10,12 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AddIcon from '@material-ui/icons/Add';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'; 
 import SwitchesGroup from './SwitchesGroup';
 import AgeSlider from './AgeSlider';
+import AddData from './AddData'
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -76,14 +78,23 @@ const useStyles = makeStyles((theme) => ({
 export default function PersistentLeft() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [openLeft, setOpenLeft] = React.useState(false);
+  const [openRight, setOpenRight] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  const handleDrawerOpenLeft = () => {
+      setOpenLeft(true);
   };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawerCloseLeft = () => {
+      setOpenLeft(false);
+  };
+
+  const handleDrawerOpenRight = () => {
+      setOpenRight(true);
+  };
+
+  const handleDrawerCloseRight = () => {
+      setOpenRight(false);
   };
 
   return (
@@ -92,35 +103,51 @@ export default function PersistentLeft() {
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
+          [classes.appBarShift]: openLeft,
         })}
       >
         <Toolbar>
+          {/*Left menu button*/}
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={handleDrawerOpenLeft}
             edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
+            className={clsx(classes.menuButton, openLeft && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h3" id="centertext"noWrap>
             Whats The Move?
           </Typography>
+
+          {/*Right menu button*/}
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpenRight}
+            edge="end"
+            className={clsx(classes.addButton, openRight && classes.hide)}
+            id="rightButton"
+          >
+            <p>Add new item!</p>
+            <AddIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
+
+      {/*Left side drawer: set advanced filters for search */}
       <Drawer
         className={classes.drawer}
         variant="persistent"
         anchor="left"
-        open={open}
+        open={openLeft}
         classes={{
           paper: classes.drawerPaper,
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerCloseLeft}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
@@ -131,9 +158,30 @@ export default function PersistentLeft() {
         <Divider />
         <AgeSlider/>
       </Drawer>
+
+      {/*Right side drawer: add new items to DB*/}
+      <Drawer
+        className={classes.drawer}
+        variant="persistent"
+        anchor="right"
+        open={openRight}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+      >
+        <div className={classes.drawerHeader}>
+          <IconButton onClick={handleDrawerCloseRight}>
+            {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </IconButton>
+        </div>
+        <Divider />
+        <AddData/>
+        <Divider />
+        
+      </Drawer>
       <main
         className={clsx(classes.content, {
-          [classes.contentShift]: open,
+          [classes.contentShift]: openLeft,
         })}
       >
         <div className={classes.drawerHeader} />
