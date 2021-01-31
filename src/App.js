@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import 'firebase/firestore'
 import { useFirestore, useFirestoreDocData} from 'reactfire';
@@ -8,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import BackgroundMap from "./Components/BackgroundMap"
 
 import PersistentLeft from './Components/PersistentLeft';
-import PersistentRight from './Components/PersistentRight';
 import CardMenu from './Components/CardMenu';
 import AddData from './Components/AddData'
 //-----------------------------------------------------------------------------IMPORTS ABOVE THIS LINE
@@ -87,28 +85,12 @@ function App() {
 
           <div id="over_map">
             <PersistentLeft/>
-            <PersistentRight/>
             
           </div>
           <div id="over_map_centered">
              
               <CardMenu/>
-           {/*     COW PLANET
-              <a
-                className="App-link"
-                href="https://youtu.be/e4iXrrbO_YY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Click Here to go to Cow Planet!
-              </a>
-           */}
-              <SuggestionForm />
-              <AddData/>
-              <Suspense fallback={"loading firebase description..."}>
-                <Move />
-              </Suspense>
-            </div>
+          </div>
 
 
         </div>
