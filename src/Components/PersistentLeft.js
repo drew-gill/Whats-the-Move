@@ -13,6 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'; 
 import SwitchesGroup from './SwitchesGroup';
+import AgeSlider from './AgeSlider';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -127,6 +128,7 @@ export default function PersistentLeft() {
         <List>
             <SwitchesGroup/>
         </List>
+        <AgeSlider/>
       </Drawer>
       <main
         className={clsx(classes.content, {
