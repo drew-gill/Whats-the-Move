@@ -15,8 +15,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'; 
 import SwitchesGroup from './SwitchesGroup';
 import AgeSlider from './AgeSlider';
-import MoneySlider from './MoneySlider'
-import DistanceSlider from './DistanceSlider'
 import AddData from './AddData'
 const drawerWidth = 240;
 
