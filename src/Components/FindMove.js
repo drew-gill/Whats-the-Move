@@ -51,8 +51,6 @@ let metersToMiles = function(meters){
   return (meters/1609).toFixed(1);
 }
 
-
-
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
