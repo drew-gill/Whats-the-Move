@@ -128,6 +128,7 @@ export default function PersistentLeft() {
         <List>
             <SwitchesGroup/>
         </List>
+        <Divider />
         <AgeSlider/>
       </Drawer>
       <main

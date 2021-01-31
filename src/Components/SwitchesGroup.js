@@ -39,7 +39,7 @@ export default function SwitchesGroup() {
           label="Needs Extra Equipment"
         />
       </FormGroup>
-      <FormHelperText>YeHaw</FormHelperText>
+      <FormHelperText></FormHelperText>
     </FormControl>
   );
 }

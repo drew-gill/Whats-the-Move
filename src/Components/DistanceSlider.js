@@ -52,7 +52,7 @@ function valuetext(value) {
     return (
       <div className={classes.root}>
         <Typography id="discrete-slider-custom" gutterBottom>
-          Maximum Distance
+          How Far?
         </Typography>
         <Grid container spacing={5}>
             <Grid item>
