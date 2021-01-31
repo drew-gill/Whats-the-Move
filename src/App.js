@@ -6,9 +6,9 @@ import React, {Suspense} from 'react'
 import Button from '@material-ui/core/Button';
 
 import BackgroundMap from "./Components/BackgroundMap"
-//import DrawerComponent from './Components/DrawerComponent'
-import PersistentLeft from './Components/PersistentLeft';
 
+import PersistentLeft from './Components/PersistentLeft';
+import CardMenu from './Components/CardMenu';
 
 //-----------------------------------------------------------------------------IMPORTS ABOVE THIS LINE
 //Get a "Move" object from Firebase
@@ -86,14 +86,12 @@ function App() {
 
           <div id="over_map">
             <PersistentLeft/>
+            
           </div>
           <div id="over_map_centered">
-              <img src={logo} className="App-logo" alt="logo" />
-              <p>
-                Edit <code>src/App.js</code> and save to reload.<br></br> EEEEEEEEEEEEEEEEEEEEEEEP ILCH eep MONKEY oop sayhitobiscuitforme
-              </p>
-
-              {/*<DrawerComponent/>   Do not use  */}
+             
+              <CardMenu/>
+           
               <a
                 className="App-link"
                 href="https://youtu.be/e4iXrrbO_YY"
