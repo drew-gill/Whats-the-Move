@@ -6,10 +6,11 @@ import React, {Suspense} from 'react'
 import Button from '@material-ui/core/Button';
 
 import BackgroundMap from "./Components/BackgroundMap"
+
 import PersistentLeft from './Components/PersistentLeft';
+import PersistentRight from './Components/PersistentRight';
 import CardMenu from './Components/CardMenu';
 import AddData from './Components/AddData'
-
 //-----------------------------------------------------------------------------IMPORTS ABOVE THIS LINE
 //Get a "Move" object from Firebase
 function Move(){
@@ -86,12 +87,13 @@ function App() {
 
           <div id="over_map">
             <PersistentLeft/>
+            <PersistentRight/>
             
           </div>
           <div id="over_map_centered">
              
               <CardMenu/>
-           {/*
+           {/*     COW PLANET
               <a
                 className="App-link"
                 href="https://youtu.be/e4iXrrbO_YY"
@@ -103,7 +105,6 @@ function App() {
            */}
               <SuggestionForm />
               <AddData/>
-
               <Suspense fallback={"loading firebase description..."}>
                 <Move />
               </Suspense>
