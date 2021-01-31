@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import BackgroundMap from "./Components/BackgroundMap"
 //import DrawerComponent from './Components/DrawerComponent'
 import PersistentLeft from './Components/PersistentLeft';
-
+import AddData from './Components/AddData'
 
 //-----------------------------------------------------------------------------IMPORTS ABOVE THIS LINE
 //Get a "Move" object from Firebase
@@ -108,6 +108,8 @@ function App() {
                 </Button>
 
               <SuggestionForm />
+              <AddData/>
+
               <Suspense fallback={"loading firebase description..."}>
                 <Move />
               </Suspense>
